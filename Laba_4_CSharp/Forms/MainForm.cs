@@ -27,8 +27,18 @@ namespace Laba_4_CSharp
             {
                 SQLiteConnection.CreateFile("AstroDatabase.db");
             }
-           
-           
+            string CreateTableGalactic = "CREATE TABLE IF NOT EXISTS [Галактики] ( [Номер галактики] INTEGER, [Название галактики] VARCHAR(45), [Количество объектов ] INTEGER)";
+            string CreateTablePlanets = "CREATE TABLE IF NOT EXISTS [Планеты] ( [Номер планеты] INTEGER, [Название планеты] VARCHAR(45), [Масса планеты] INTEGER, [Размер планеты] INTEGER)";
+            string CreateTableStars = "CREATE TABLE IF NOT EXISTS [Звезды] ( [Номер звезды] INTEGER, [Название звезды] VARCHAR(45), [Размер звезды] INTEGER, [Удаленность от земли(св лет] INTEGER, [Масса звезды] INTEGER)";
+            SQLiteCommand CommandGalactic = new SQLiteCommand(CreateTableGalactic, Connection);
+            SQLiteCommand CommandPlanets = new SQLiteCommand(CreateTablePlanets, Connection);
+            SQLiteCommand CommandStars = new SQLiteCommand(CreateTableStars, Connection);
+            Connection.Open();
+            CommandGalactic.ExecuteNonQuery();
+            CommandPlanets.ExecuteNonQuery();
+            CommandStars.ExecuteNonQuery();
+            Connection.Close();
+
         }
         void ShowTableGalactics()
         {
@@ -116,56 +126,80 @@ namespace Laba_4_CSharp
 
         private void DeleteButtonStars_Click(object sender, System.EventArgs e)
         {
-            Connection.Open();
-            string CommandText = "DELETE FROM [Звезды] WHERE [Номер звезды] = @starnumber AND [Название звезды] = @starname AND [Размер звезды] = @starsize AND [Удаленность от земли (св лет)] = @starfar AND [Масса звезды] = @starmass";
+            try
+            {
+                Connection.Open();
+                string CommandText = "DELETE FROM [Звезды] WHERE [Номер звезды] = @starnumber AND [Название звезды] = @starname AND [Размер звезды] = @starsize AND [Удаленность от земли (св лет)] = @starfar AND [Масса звезды] = @starmass";
 
-            SQLiteCommand DeleteComand = new SQLiteCommand(CommandText, Connection);
+                SQLiteCommand DeleteComand = new SQLiteCommand(CommandText, Connection);
 
-            DeleteComand.Parameters.AddWithValue("@starnumber", StarsTable[0, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.Parameters.AddWithValue("@starname", StarsTable[1, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.Parameters.AddWithValue("@starsize", StarsTable[2, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.Parameters.AddWithValue("@starfar", StarsTable[3, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.Parameters.AddWithValue("@starmass", StarsTable[4, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.ExecuteNonQuery();
-            Connection.Close();
-            int DeleteFromTable = StarsTable.SelectedCells[0].RowIndex;
-            StarsTable.Rows.RemoveAt(DeleteFromTable);
-            ShowTableStars();
+                DeleteComand.Parameters.AddWithValue("@starnumber", StarsTable[0, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.Parameters.AddWithValue("@starname", StarsTable[1, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.Parameters.AddWithValue("@starsize", StarsTable[2, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.Parameters.AddWithValue("@starfar", StarsTable[3, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.Parameters.AddWithValue("@starmass", StarsTable[4, StarsTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.ExecuteNonQuery();
+                Connection.Close();
+                int DeleteFromTable = StarsTable.SelectedCells[0].RowIndex;
+                StarsTable.Rows.RemoveAt(DeleteFromTable);
+                ShowTableStars();
+            }
+            catch
+            {
+                MessageBox.Show("Вместо того чтобы бездумно тыкать кнопки, можно было бы посмотреть, что записей-то нет :/");
+                Connection.Close();
+            }
         }
 
         private void PlanetsDeleteButton_Click(object sender, System.EventArgs e)
         {
-            Connection.Open();
-            string CommandText = "DELETE FROM [Планеты] WHERE [Номер планеты] = @planetnumber AND [Название планеты] = @planetname AND [Масса планеты] = @planetmass AND [Размер планеты] = @planetsize";
+            try
+            {
+                Connection.Open();
+                string CommandText = "DELETE FROM [Планеты] WHERE [Номер планеты] = @planetnumber AND [Название планеты] = @planetname AND [Масса планеты] = @planetmass AND [Размер планеты] = @planetsize";
 
-            SQLiteCommand DeleteComand = new SQLiteCommand(CommandText, Connection);
+                SQLiteCommand DeleteComand = new SQLiteCommand(CommandText, Connection);
 
-            DeleteComand.Parameters.AddWithValue("@planetnumber", PlanetsTable[0, PlanetsTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.Parameters.AddWithValue("@planetname", PlanetsTable[1, PlanetsTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.Parameters.AddWithValue("@planetmass", PlanetsTable[2, PlanetsTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.Parameters.AddWithValue("@planetsize", PlanetsTable[3, PlanetsTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.ExecuteNonQuery();
-            Connection.Close();
-            int DeleteFromTable = PlanetsTable.SelectedCells[0].RowIndex;
-            PlanetsTable.Rows.RemoveAt(DeleteFromTable);
-            ShowTableStars();
+                DeleteComand.Parameters.AddWithValue("@planetnumber", PlanetsTable[0, PlanetsTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.Parameters.AddWithValue("@planetname", PlanetsTable[1, PlanetsTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.Parameters.AddWithValue("@planetmass", PlanetsTable[2, PlanetsTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.Parameters.AddWithValue("@planetsize", PlanetsTable[3, PlanetsTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.ExecuteNonQuery();
+                Connection.Close();
+                int DeleteFromTable = PlanetsTable.SelectedCells[0].RowIndex;
+                PlanetsTable.Rows.RemoveAt(DeleteFromTable);
+                ShowTableStars();
+            }
+            catch
+            {
+                MessageBox.Show("Нет, ну я бы удалил что-нибудь...Но ведь нечего");
+                Connection.Close();
+            }
         }
 
         private void DeleteButtonGalactics_Click(object sender, System.EventArgs e)
         {
-            Connection.Open();
-            string CommandText = "DELETE FROM [Галактики] WHERE [Номер галактики] = @galacticnumber AND [Название галактики] = @galacticname AND [Количество объектов ] = @galacticnumofobj";
+            try
+            {
+                Connection.Open();
+                string CommandText = "DELETE FROM [Галактики] WHERE [Номер галактики] = @galacticnumber AND [Название галактики] = @galacticname AND [Количество объектов ] = @galacticnumofobj";
 
-            SQLiteCommand DeleteComand = new SQLiteCommand(CommandText, Connection);
+                SQLiteCommand DeleteComand = new SQLiteCommand(CommandText, Connection);
 
-            DeleteComand.Parameters.AddWithValue("@galacticnumber", GalacticTable[0, GalacticTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.Parameters.AddWithValue("@galacticname", GalacticTable[1, GalacticTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.Parameters.AddWithValue("@galacticnumofobj", GalacticTable[2, GalacticTable.SelectedCells[0].RowIndex].Value.ToString());
-            DeleteComand.ExecuteNonQuery();
-            Connection.Close();
-            int DeleteFromTable = GalacticTable.SelectedCells[0].RowIndex;
-            GalacticTable.Rows.RemoveAt(DeleteFromTable);
-            ShowTableStars();
+                DeleteComand.Parameters.AddWithValue("@galacticnumber", GalacticTable[0, GalacticTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.Parameters.AddWithValue("@galacticname", GalacticTable[1, GalacticTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.Parameters.AddWithValue("@galacticnumofobj", GalacticTable[2, GalacticTable.SelectedCells[0].RowIndex].Value.ToString());
+                DeleteComand.ExecuteNonQuery();
+                Connection.Close();
+                int DeleteFromTable = GalacticTable.SelectedCells[0].RowIndex;
+                GalacticTable.Rows.RemoveAt(DeleteFromTable);
+                ShowTableStars();
+            }
+            catch
+            {
+                MessageBox.Show("Что вы вообще пытаетесь удалить?");
+                Connection.Close();
+            }
         }
 
         private void RefreshButtonGalactic_Click(object sender, System.EventArgs e)
@@ -191,7 +225,14 @@ namespace Laba_4_CSharp
             this.Height = 540;
             GalacticNameTextbox.Text = "";
             NumOfObjTextbox.Text = "";
-            NumberOfGalacticTextbox.Text = (Convert.ToInt32(GalacticTable.Rows[GalacticTable.Rows.Count - 1].Cells[0].Value)+1).ToString();
+            try
+            {
+                NumberOfGalacticTextbox.Text = (Convert.ToInt32(GalacticTable.Rows[GalacticTable.Rows.Count - 1].Cells[0].Value) + 1).ToString();
+            }
+            catch (Exception)
+            {
+                NumberOfGalacticTextbox.Text = "1";
+            }
             GalacticNameTextbox.ShortcutsEnabled = false;
             GalacticNameTextbox.ContextMenu = new ContextMenu();
             NumOfObjTextbox.ShortcutsEnabled = false;
@@ -210,11 +251,6 @@ namespace Laba_4_CSharp
             NameOfGalacticLabel.Visible = true;
             NumOfObjGalacticLabel.Visible = true;
 
-        }
-
-        private void NameGalacticKeyPressed(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !System.Text.RegularExpressions.Regex.IsMatch(e.KeyChar.ToString(), "^[А-Яа-я\b ]+$");
         }
 
         private void NumOfObjectsGalacticKeyPressed(object sender, KeyPressEventArgs e)
@@ -237,10 +273,7 @@ namespace Laba_4_CSharp
             {
                 GalacticNameTextbox.BackColor = Color.White;
                 NumOfObjTextbox.BackColor = Color.White;
-                int NumberOfGalactic = Convert.ToInt32(NumberOfGalacticTextbox.Text);
-                string GalacticName = GalacticNameTextbox.Text;
-                int NumOfObjects = Convert.ToInt32(NumOfObjTextbox.Text);
-                AddToGalactic(NumberOfGalactic, GalacticName, NumOfObjects);
+                AddToGalactic(Convert.ToInt32(NumberOfGalacticTextbox.Text), GalacticNameTextbox.Text, Convert.ToInt32(NumOfObjTextbox.Text));
                 GalacticHideControl();
                
 
@@ -280,30 +313,37 @@ namespace Laba_4_CSharp
         int GalacticCurrentIndex;
         private void EditButtonGalactic_Click(object sender, EventArgs e)
         {
-            GalacticCurrentIndex = GalacticTable.CurrentRow.Index;
-            ShowTableGalactics();
-            this.Width = 832;
-            this.Height = 540;
-            GalacticNameTextbox.ShortcutsEnabled = false;
-            GalacticNameTextbox.ContextMenu = new ContextMenu();
-            NumOfObjTextbox.ShortcutsEnabled = false;
-            NumOfObjTextbox.ContextMenu = new ContextMenu();
-            NumberOfGalacticTextbox.ShortcutsEnabled = false;
-            NumberOfGalacticTextbox.ContextMenu = new ContextMenu();
-            DeleteButtonGalactics.Visible = false;
-            RefreshButtonGalactic.Visible = false;
-            AddButtonGalactic.Visible = false;
-            EditButtonGalactic.Visible = false;
-            GalacticNameTextbox.Visible = true;
-            NumberOfGalacticTextbox.Visible = true;
-            NumOfObjTextbox.Visible = true;
-            EditSaveButtonGalactic.Visible = true;
-            NumberOfGalacticLabel.Visible = true;
-            NameOfGalacticLabel.Visible = true;
-            NumOfObjGalacticLabel.Visible = true;
-            NumberOfGalacticTextbox.Text = GalacticTable[0, GalacticCurrentIndex].Value.ToString();
-            GalacticNameTextbox.Text = GalacticTable[1, GalacticCurrentIndex].Value.ToString();
-            NumOfObjTextbox.Text = GalacticTable[2, GalacticCurrentIndex].Value.ToString();
+            try
+            {
+                GalacticCurrentIndex = GalacticTable.CurrentRow.Index;
+                ShowTableGalactics();
+                this.Width = 832;
+                this.Height = 540;
+                GalacticNameTextbox.ShortcutsEnabled = false;
+                GalacticNameTextbox.ContextMenu = new ContextMenu();
+                NumOfObjTextbox.ShortcutsEnabled = false;
+                NumOfObjTextbox.ContextMenu = new ContextMenu();
+                NumberOfGalacticTextbox.ShortcutsEnabled = false;
+                NumberOfGalacticTextbox.ContextMenu = new ContextMenu();
+                DeleteButtonGalactics.Visible = false;
+                RefreshButtonGalactic.Visible = false;
+                AddButtonGalactic.Visible = false;
+                EditButtonGalactic.Visible = false;
+                GalacticNameTextbox.Visible = true;
+                NumberOfGalacticTextbox.Visible = true;
+                NumOfObjTextbox.Visible = true;
+                EditSaveButtonGalactic.Visible = true;
+                NumberOfGalacticLabel.Visible = true;
+                NameOfGalacticLabel.Visible = true;
+                NumOfObjGalacticLabel.Visible = true;
+                NumberOfGalacticTextbox.Text = GalacticTable[0, GalacticCurrentIndex].Value.ToString();
+                GalacticNameTextbox.Text = GalacticTable[1, GalacticCurrentIndex].Value.ToString();
+                NumOfObjTextbox.Text = GalacticTable[2, GalacticCurrentIndex].Value.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Да нечего тут изменять...");
+            }
         }
 
         private void EditSaveButtonGalactic_Click(object sender, EventArgs e)
@@ -335,7 +375,14 @@ namespace Laba_4_CSharp
             NameOfPlanetTextbox.Text = "";
             MassOfPlanetTextbox.Text = "";
             SizeOfPlanetTextbox.Text = "";
-            NumberOfPlanetTextbox.Text = (Convert.ToInt32(PlanetsTable.Rows[PlanetsTable.Rows.Count - 1].Cells[0].Value) + 1).ToString();
+            try
+            {
+                NumberOfPlanetTextbox.Text = (Convert.ToInt32(PlanetsTable.Rows[PlanetsTable.Rows.Count - 1].Cells[0].Value) + 1).ToString();
+            }
+            catch (Exception)
+            {
+                NumberOfPlanetTextbox.Text = "1";
+            } 
             NameOfPlanetTextbox.ShortcutsEnabled = false;
             NameOfPlanetTextbox.ContextMenu = new ContextMenu();
             MassOfPlanetTextbox.ShortcutsEnabled = false;
@@ -380,18 +427,22 @@ namespace Laba_4_CSharp
                 MassOfPlanetTextbox.BackColor = Color.White;
                 SizeOfPlanetTextbox.BackColor = Color.White;
                 Connection = new SQLiteConnection("Data Source = AstroDatabase.db; Version = 3");
-                Connection.Open();
-                string AddCommand = "INSERT INTO [Планеты] ([Номер планеты], [Название планеты], [Масса планеты], [Размер планеты]) VALUES(@planetnumber, @planetname, @planetmass, @planetsize)";
-                SQLiteCommand Command = new SQLiteCommand(AddCommand, Connection);
-                Command.Parameters.AddWithValue("@planetnumber", Convert.ToInt32(NumberOfPlanetTextbox.Text));
-                Command.Parameters.AddWithValue("@planetname", NameOfPlanetTextbox.Text);
-                Command.Parameters.AddWithValue("@planetmass", Convert.ToInt32(MassOfPlanetTextbox.Text));
-                Command.Parameters.AddWithValue("@planetsize", Convert.ToInt32(SizeOfPlanetTextbox.Text));
-                Command.ExecuteNonQuery();
-                Connection.Close();
+                AddToPlanet(Convert.ToInt32(NumberOfPlanetTextbox.Text), NameOfPlanetTextbox.Text, Convert.ToInt32(MassOfPlanetTextbox.Text), Convert.ToInt32(SizeOfPlanetTextbox.Text));
                 ShowTablePlanets();
                 PlanetsHideControl();
             }
+        }
+        public void AddToPlanet(int NumberOfPlanet, string NameOfPlanet, int MassOfPlanet, int SizeOfPlanet)
+        {
+            Connection.Open();
+            string AddCommand = "INSERT INTO [Планеты] ([Номер планеты], [Название планеты], [Масса планеты], [Размер планеты]) VALUES(@planetnumber, @planetname, @planetmass, @planetsize)";
+            SQLiteCommand Command = new SQLiteCommand(AddCommand, Connection);
+            Command.Parameters.AddWithValue("@planetnumber", NumberOfPlanet);
+            Command.Parameters.AddWithValue("@planetname", NameOfPlanet);
+            Command.Parameters.AddWithValue("@planetmass", MassOfPlanet);
+            Command.Parameters.AddWithValue("@planetsize", SizeOfPlanet);
+            Command.ExecuteNonQuery();
+            Connection.Close();
         }
         void PlanetsHideControl()
         {
@@ -438,11 +489,6 @@ namespace Laba_4_CSharp
             
         }
 
-        private void NameOfPlanetKeyPressed(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !System.Text.RegularExpressions.Regex.IsMatch(e.KeyChar.ToString(), "^[А-Яа-я\b ]+$");
-        }
-
         private void MassOfPlanetKeyPressed(object sender, KeyPressEventArgs e)
         {
             e.Handled = !System.Text.RegularExpressions.Regex.IsMatch(e.KeyChar.ToString(), "^[0-9\b]+$");
@@ -455,37 +501,44 @@ namespace Laba_4_CSharp
 
         private void EditButtonPlanet_Click(object sender, EventArgs e)
         {
-            PlanetsCurrentIndex = PlanetsTable.CurrentRow.Index;
-            ShowTablePlanets();
-            this.Width = 832;
-            this.Height = 540;
+            try
+            {
+                PlanetsCurrentIndex = PlanetsTable.CurrentRow.Index;
+                ShowTablePlanets();
+                this.Width = 832;
+                this.Height = 540;
 
-            NumberOfPlanetTextbox.Text = PlanetsTable[0, PlanetsCurrentIndex].Value.ToString();
-            NameOfPlanetTextbox.Text = PlanetsTable[1, PlanetsCurrentIndex].Value.ToString();
-            MassOfPlanetTextbox.Text = PlanetsTable[2, PlanetsCurrentIndex].Value.ToString();
-            SizeOfPlanetTextbox.Text = PlanetsTable[3, PlanetsCurrentIndex].Value.ToString();
-            NameOfPlanetTextbox.ShortcutsEnabled = false;
-            NameOfPlanetTextbox.ContextMenu = new ContextMenu();
-            MassOfPlanetTextbox.ShortcutsEnabled = false;
-            MassOfPlanetTextbox.ContextMenu = new ContextMenu();
-            SizeOfPlanetTextbox.ShortcutsEnabled = false;
-            SizeOfPlanetTextbox.ContextMenu = new ContextMenu();
-            NumberOfPlanetTextbox.ShortcutsEnabled = false;
-            NumberOfPlanetTextbox.ContextMenu = new ContextMenu();
+                NumberOfPlanetTextbox.Text = PlanetsTable[0, PlanetsCurrentIndex].Value.ToString();
+                NameOfPlanetTextbox.Text = PlanetsTable[1, PlanetsCurrentIndex].Value.ToString();
+                MassOfPlanetTextbox.Text = PlanetsTable[2, PlanetsCurrentIndex].Value.ToString();
+                SizeOfPlanetTextbox.Text = PlanetsTable[3, PlanetsCurrentIndex].Value.ToString();
+                NameOfPlanetTextbox.ShortcutsEnabled = false;
+                NameOfPlanetTextbox.ContextMenu = new ContextMenu();
+                MassOfPlanetTextbox.ShortcutsEnabled = false;
+                MassOfPlanetTextbox.ContextMenu = new ContextMenu();
+                SizeOfPlanetTextbox.ShortcutsEnabled = false;
+                SizeOfPlanetTextbox.ContextMenu = new ContextMenu();
+                NumberOfPlanetTextbox.ShortcutsEnabled = false;
+                NumberOfPlanetTextbox.ContextMenu = new ContextMenu();
 
-            DeleteButtonPlanets.Visible = false;
-            AddButtonPlanets.Visible = false;
-            EditButtonPlanet.Visible = false;
-            RefreshButtonPlanets.Visible = false;
-            NumberOfPlanetTextbox.Visible = true;
-            NumberOfPlanetLabel.Visible = true;
-            NameOfPlanetLabel.Visible = true;
-            NameOfPlanetTextbox.Visible = true;
-            MassOfPlanetLabel.Visible = true;
-            MassOfPlanetTextbox.Visible = true;
-            SizeOfPlanetLabel.Visible = true;
-            SizeOfPlanetTextbox.Visible = true;
-            EditSaveButtonPlanet.Visible = true;
+                DeleteButtonPlanets.Visible = false;
+                AddButtonPlanets.Visible = false;
+                EditButtonPlanet.Visible = false;
+                RefreshButtonPlanets.Visible = false;
+                NumberOfPlanetTextbox.Visible = true;
+                NumberOfPlanetLabel.Visible = true;
+                NameOfPlanetLabel.Visible = true;
+                NameOfPlanetTextbox.Visible = true;
+                MassOfPlanetLabel.Visible = true;
+                MassOfPlanetTextbox.Visible = true;
+                SizeOfPlanetLabel.Visible = true;
+                SizeOfPlanetTextbox.Visible = true;
+                EditSaveButtonPlanet.Visible = true;
+            }
+            catch
+            {
+                MessageBox.Show("Чтобы что-то изменить, сперва нужно что-то добавить...");
+            }
         }
         //Весь нижеперечисленный код до следующего комментария относится ко вкладке "Звезды"
         private void AddButtonStars_Click(object sender, EventArgs e)
@@ -497,7 +550,15 @@ namespace Laba_4_CSharp
             SizeOfStarTextbox.Text = "";
             FarOfStarTextbox.Text = "";
             MassOfStarTextbox.Text = "";
-            NumberOfStarTextbox.Text = (Convert.ToInt32(StarsTable.Rows[StarsTable.Rows.Count - 1].Cells[0].Value) + 1).ToString();
+            try
+            {
+                NumberOfStarTextbox.Text = (Convert.ToInt32(StarsTable.Rows[StarsTable.Rows.Count - 1].Cells[0].Value) + 1).ToString();
+            }
+            catch (Exception)
+            {
+                NumberOfStarTextbox.Text = "1";
+            }
+            
             NameOfStarTextbox.ShortcutsEnabled = false;
             NameOfStarTextbox.ContextMenu = new ContextMenu();
             SizeOfStarTextbox.ShortcutsEnabled = false;
@@ -551,21 +612,24 @@ namespace Laba_4_CSharp
                 FarOfStarTextbox.BackColor = Color.White;
                 MassOfStarTextbox.BackColor = Color.White;
                 Connection = new SQLiteConnection("Data Source = AstroDatabase.db; Version = 3");
-                Connection.Open();
-                string AddCommand = "INSERT INTO [Звезды] ([Номер звезды], [Название звезды], [Размер звезды], [Удаленность от земли (св лет)], [Масса звезды]) VALUES(@starnumber, @starname, @starsize, @starfar, @starmass)";
-                SQLiteCommand Command = new SQLiteCommand(AddCommand, Connection);
-                Command.Parameters.AddWithValue("@starnumber", Convert.ToInt32(NumberOfStarTextbox.Text));
-                Command.Parameters.AddWithValue("@starname", NameOfStarTextbox.Text);
-                Command.Parameters.AddWithValue("@starsize", Convert.ToInt32(SizeOfStarTextbox.Text));
-                Command.Parameters.AddWithValue("@starfar", Convert.ToInt32(FarOfStarTextbox.Text));
-                Command.Parameters.AddWithValue("@starmass", Convert.ToInt32(MassOfStarTextbox.Text));
-                Command.ExecuteNonQuery();
-                Connection.Close();
+                AddToStars(Convert.ToInt32(NumberOfStarTextbox.Text), NameOfStarTextbox.Text, Convert.ToInt32(SizeOfStarTextbox.Text), Convert.ToInt32(FarOfStarTextbox.Text), Convert.ToInt32(MassOfStarTextbox.Text));
                 ShowTableStars();
                 StarsHideControl();
             }
         }
-        public 
+        public void AddToStars(int NumberOfStar, string NameOfStar, int SizeOfStar, int FarOfStar, int MassOfStar)
+        {
+            Connection.Open();
+            string AddCommand = "INSERT INTO [Звезды] ([Номер звезды], [Название звезды], [Размер звезды], [Удаленность от земли (св лет)], [Масса звезды]) VALUES(@starnumber, @starname, @starsize, @starfar, @starmass)";
+            SQLiteCommand Command = new SQLiteCommand(AddCommand, Connection);
+            Command.Parameters.AddWithValue("@starnumber", NumberOfStar);
+            Command.Parameters.AddWithValue("@starname", NameOfStar);
+            Command.Parameters.AddWithValue("@starsize", SizeOfStar);
+            Command.Parameters.AddWithValue("@starfar", FarOfStar);
+            Command.Parameters.AddWithValue("@starmass", MassOfStar);
+            Command.ExecuteNonQuery();
+            Connection.Close();
+        } 
         void StarsHideControl()
         {
             this.Width = 832;
@@ -589,11 +653,6 @@ namespace Laba_4_CSharp
             SaveEditStarButton.Visible = false;
         }
 
-        private void NameOfStarKeyPressed(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !System.Text.RegularExpressions.Regex.IsMatch(e.KeyChar.ToString(), "^[А-Яа-я\b ]+$");
-        }
-
         private void SizeOfStarKeyPressed(object sender, KeyPressEventArgs e)
         {
             e.Handled = !System.Text.RegularExpressions.Regex.IsMatch(e.KeyChar.ToString(), "^[0-9\b]+$");
@@ -611,42 +670,49 @@ namespace Laba_4_CSharp
         int StarsCurrentIndex;
         private void EditButtonStars_Click(object sender, EventArgs e)
         {
-            StarsCurrentIndex = StarsTable.CurrentRow.Index;
-            ShowTableStars();
-            this.Width = 832;
-            this.Height = 540;
-            NameOfStarTextbox.Text = StarsTable[1, StarsCurrentIndex].Value.ToString();
-            SizeOfStarTextbox.Text = StarsTable[2, StarsCurrentIndex].Value.ToString(); ;
-            FarOfStarTextbox.Text = StarsTable[3, StarsCurrentIndex].Value.ToString();
-            MassOfStarTextbox.Text = StarsTable[4, StarsCurrentIndex].Value.ToString();
-            NumberOfStarTextbox.Text = StarsTable[0, StarsCurrentIndex].Value.ToString();
-            NameOfStarTextbox.ShortcutsEnabled = false;
-            NameOfStarTextbox.ContextMenu = new ContextMenu();
-            SizeOfStarTextbox.ShortcutsEnabled = false;
-            SizeOfStarTextbox.ContextMenu = new ContextMenu();
-            FarOfStarTextbox.ShortcutsEnabled = false;
-            FarOfStarTextbox.ContextMenu = new ContextMenu();
-            MassOfStarTextbox.ShortcutsEnabled = false;
-            MassOfStarTextbox.ContextMenu = new ContextMenu();
-            NumberOfStarTextbox.ShortcutsEnabled = false;
-            NumberOfStarTextbox.ContextMenu = new ContextMenu();
+            try
+            {
+                StarsCurrentIndex = StarsTable.CurrentRow.Index;
+                ShowTableStars();
+                this.Width = 832;
+                this.Height = 540;
+                NameOfStarTextbox.Text = StarsTable[1, StarsCurrentIndex].Value.ToString();
+                SizeOfStarTextbox.Text = StarsTable[2, StarsCurrentIndex].Value.ToString(); ;
+                FarOfStarTextbox.Text = StarsTable[3, StarsCurrentIndex].Value.ToString();
+                MassOfStarTextbox.Text = StarsTable[4, StarsCurrentIndex].Value.ToString();
+                NumberOfStarTextbox.Text = StarsTable[0, StarsCurrentIndex].Value.ToString();
+                NameOfStarTextbox.ShortcutsEnabled = false;
+                NameOfStarTextbox.ContextMenu = new ContextMenu();
+                SizeOfStarTextbox.ShortcutsEnabled = false;
+                SizeOfStarTextbox.ContextMenu = new ContextMenu();
+                FarOfStarTextbox.ShortcutsEnabled = false;
+                FarOfStarTextbox.ContextMenu = new ContextMenu();
+                MassOfStarTextbox.ShortcutsEnabled = false;
+                MassOfStarTextbox.ContextMenu = new ContextMenu();
+                NumberOfStarTextbox.ShortcutsEnabled = false;
+                NumberOfStarTextbox.ContextMenu = new ContextMenu();
 
-            DeleteButtonStars.Visible = false;
-            AddButtonStars.Visible = false;
-            EditButtonStars.Visible = false;
-            RefreshButtonStars.Visible = false;
+                DeleteButtonStars.Visible = false;
+                AddButtonStars.Visible = false;
+                EditButtonStars.Visible = false;
+                RefreshButtonStars.Visible = false;
 
-            NumberOfStarLabel.Visible = true;
-            NumberOfStarTextbox.Visible = true;
-            NameOfStarTextbox.Visible = true;
-            NameOfStarLabel.Visible = true;
-            SizeOfStarTextbox.Visible = true;
-            SizeOfStarLabel.Visible = true;
-            FarOfStarLabel.Visible = true;
-            FarOfStarTextbox.Visible = true;
-            MassOfStarTextbox.Visible = true;
-            MassOfStarLabel.Visible = true;
-            SaveEditStarButton.Visible = true;
+                NumberOfStarLabel.Visible = true;
+                NumberOfStarTextbox.Visible = true;
+                NameOfStarTextbox.Visible = true;
+                NameOfStarLabel.Visible = true;
+                SizeOfStarTextbox.Visible = true;
+                SizeOfStarLabel.Visible = true;
+                FarOfStarLabel.Visible = true;
+                FarOfStarTextbox.Visible = true;
+                MassOfStarTextbox.Visible = true;
+                MassOfStarLabel.Visible = true;
+                SaveEditStarButton.Visible = true;
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно отредактировать то, чего нет :(");
+            }
         }
         private void SaveEditStarButton_Click(object sender, EventArgs e)
         {
@@ -721,6 +787,13 @@ namespace Laba_4_CSharp
         private void AboutButton_Click(object sender, EventArgs e)
         {
             AboutForm.ShowDialog();
+        }
+
+        private void ReturnButton_Click(object sender, EventArgs e)
+        {
+            GalacticHideControl();
+            PlanetsHideControl();
+            StarsHideControl();
         }
     }
    

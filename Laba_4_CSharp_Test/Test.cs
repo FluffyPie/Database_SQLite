@@ -35,6 +35,6 @@ namespace Laba_4_CSharp_Test
             string GalacticName = "TestName";
             int NumberOfObjects = 15;
             Assert.AreEqual(ExpecterRowCount, MainForm.AddToGalactic(GalacticNumber, GalacticName, NumberOfObjects));
-        }
+        }   
     }
 }

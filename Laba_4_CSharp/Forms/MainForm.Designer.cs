@@ -100,6 +100,7 @@
             this.MassOfStarLabel = new System.Windows.Forms.Label();
             this.MassOfStarTextbox = new System.Windows.Forms.TextBox();
             this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.ReturnButton = new Guna.UI.WinForms.GunaAdvenceButton();
             ((System.ComponentModel.ISupportInitialize)(this.GalacticTable)).BeginInit();
             this.Tabs.SuspendLayout();
             this.GalacticsTab.SuspendLayout();
@@ -746,7 +747,7 @@
             this.fileToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
-            this.MenuStrip.Size = new System.Drawing.Size(832, 29);
+            this.MenuStrip.Size = new System.Drawing.Size(825, 29);
             this.MenuStrip.TabIndex = 21;
             this.MenuStrip.Text = "menuStrip1";
             // 
@@ -786,11 +787,12 @@
             // NumberOfGalacticTextbox
             // 
             this.NumberOfGalacticTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NumberOfGalacticTextbox.Location = new System.Drawing.Point(47, 473);
+            this.NumberOfGalacticTextbox.Location = new System.Drawing.Point(55, 485);
             this.NumberOfGalacticTextbox.Multiline = true;
             this.NumberOfGalacticTextbox.Name = "NumberOfGalacticTextbox";
             this.NumberOfGalacticTextbox.ReadOnly = true;
-            this.NumberOfGalacticTextbox.Size = new System.Drawing.Size(129, 39);
+            this.NumberOfGalacticTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.NumberOfGalacticTextbox.Size = new System.Drawing.Size(129, 27);
             this.NumberOfGalacticTextbox.TabIndex = 24;
             this.NumberOfGalacticTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NumberOfGalacticTextbox.Visible = false;
@@ -798,22 +800,23 @@
             // GalacticNameTextbox
             // 
             this.GalacticNameTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GalacticNameTextbox.Location = new System.Drawing.Point(234, 473);
+            this.GalacticNameTextbox.Location = new System.Drawing.Point(242, 485);
             this.GalacticNameTextbox.Multiline = true;
             this.GalacticNameTextbox.Name = "GalacticNameTextbox";
-            this.GalacticNameTextbox.Size = new System.Drawing.Size(129, 39);
+            this.GalacticNameTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.GalacticNameTextbox.Size = new System.Drawing.Size(129, 27);
             this.GalacticNameTextbox.TabIndex = 25;
             this.GalacticNameTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GalacticNameTextbox.Visible = false;
-            this.GalacticNameTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameGalacticKeyPressed);
             // 
             // NumOfObjTextbox
             // 
             this.NumOfObjTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NumOfObjTextbox.Location = new System.Drawing.Point(413, 473);
+            this.NumOfObjTextbox.Location = new System.Drawing.Point(421, 485);
             this.NumOfObjTextbox.Multiline = true;
             this.NumOfObjTextbox.Name = "NumOfObjTextbox";
-            this.NumOfObjTextbox.Size = new System.Drawing.Size(129, 39);
+            this.NumOfObjTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.NumOfObjTextbox.Size = new System.Drawing.Size(129, 27);
             this.NumOfObjTextbox.TabIndex = 26;
             this.NumOfObjTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NumOfObjTextbox.Visible = false;
@@ -858,7 +861,7 @@
             this.NumberOfGalacticLabel.AutoSize = true;
             this.NumberOfGalacticLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NumberOfGalacticLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NumberOfGalacticLabel.Location = new System.Drawing.Point(48, 454);
+            this.NumberOfGalacticLabel.Location = new System.Drawing.Point(56, 466);
             this.NumberOfGalacticLabel.Name = "NumberOfGalacticLabel";
             this.NumberOfGalacticLabel.Size = new System.Drawing.Size(128, 16);
             this.NumberOfGalacticLabel.TabIndex = 28;
@@ -870,7 +873,7 @@
             this.NameOfGalacticLabel.AutoSize = true;
             this.NameOfGalacticLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameOfGalacticLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NameOfGalacticLabel.Location = new System.Drawing.Point(223, 454);
+            this.NameOfGalacticLabel.Location = new System.Drawing.Point(231, 466);
             this.NameOfGalacticLabel.Name = "NameOfGalacticLabel";
             this.NameOfGalacticLabel.Size = new System.Drawing.Size(152, 16);
             this.NameOfGalacticLabel.TabIndex = 29;
@@ -882,7 +885,7 @@
             this.NumOfObjGalacticLabel.AutoSize = true;
             this.NumOfObjGalacticLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NumOfObjGalacticLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NumOfObjGalacticLabel.Location = new System.Drawing.Point(400, 454);
+            this.NumOfObjGalacticLabel.Location = new System.Drawing.Point(408, 466);
             this.NumOfObjGalacticLabel.Name = "NumOfObjGalacticLabel";
             this.NumOfObjGalacticLabel.Size = new System.Drawing.Size(160, 16);
             this.NumOfObjGalacticLabel.TabIndex = 30;
@@ -928,7 +931,7 @@
             this.NumberOfPlanetLabel.AutoSize = true;
             this.NumberOfPlanetLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NumberOfPlanetLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NumberOfPlanetLabel.Location = new System.Drawing.Point(38, 454);
+            this.NumberOfPlanetLabel.Location = new System.Drawing.Point(33, 466);
             this.NumberOfPlanetLabel.Name = "NumberOfPlanetLabel";
             this.NumberOfPlanetLabel.Size = new System.Drawing.Size(112, 16);
             this.NumberOfPlanetLabel.TabIndex = 33;
@@ -938,11 +941,12 @@
             // NumberOfPlanetTextbox
             // 
             this.NumberOfPlanetTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NumberOfPlanetTextbox.Location = new System.Drawing.Point(36, 473);
+            this.NumberOfPlanetTextbox.Location = new System.Drawing.Point(31, 485);
             this.NumberOfPlanetTextbox.Multiline = true;
             this.NumberOfPlanetTextbox.Name = "NumberOfPlanetTextbox";
             this.NumberOfPlanetTextbox.ReadOnly = true;
-            this.NumberOfPlanetTextbox.Size = new System.Drawing.Size(129, 39);
+            this.NumberOfPlanetTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.NumberOfPlanetTextbox.Size = new System.Drawing.Size(129, 26);
             this.NumberOfPlanetTextbox.TabIndex = 32;
             this.NumberOfPlanetTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NumberOfPlanetTextbox.Visible = false;
@@ -952,7 +956,7 @@
             this.NameOfPlanetLabel.AutoSize = true;
             this.NameOfPlanetLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameOfPlanetLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NameOfPlanetLabel.Location = new System.Drawing.Point(168, 454);
+            this.NameOfPlanetLabel.Location = new System.Drawing.Point(163, 466);
             this.NameOfPlanetLabel.Name = "NameOfPlanetLabel";
             this.NameOfPlanetLabel.Size = new System.Drawing.Size(136, 16);
             this.NameOfPlanetLabel.TabIndex = 35;
@@ -962,21 +966,21 @@
             // NameOfPlanetTextbox
             // 
             this.NameOfPlanetTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameOfPlanetTextbox.Location = new System.Drawing.Point(171, 473);
+            this.NameOfPlanetTextbox.Location = new System.Drawing.Point(166, 485);
             this.NameOfPlanetTextbox.Multiline = true;
             this.NameOfPlanetTextbox.Name = "NameOfPlanetTextbox";
-            this.NameOfPlanetTextbox.Size = new System.Drawing.Size(129, 39);
+            this.NameOfPlanetTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.NameOfPlanetTextbox.Size = new System.Drawing.Size(129, 26);
             this.NameOfPlanetTextbox.TabIndex = 34;
             this.NameOfPlanetTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NameOfPlanetTextbox.Visible = false;
-            this.NameOfPlanetTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameOfPlanetKeyPressed);
             // 
             // MassOfPlanetLabel
             // 
             this.MassOfPlanetLabel.AutoSize = true;
             this.MassOfPlanetLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MassOfPlanetLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.MassOfPlanetLabel.Location = new System.Drawing.Point(312, 454);
+            this.MassOfPlanetLabel.Location = new System.Drawing.Point(307, 466);
             this.MassOfPlanetLabel.Name = "MassOfPlanetLabel";
             this.MassOfPlanetLabel.Size = new System.Drawing.Size(112, 16);
             this.MassOfPlanetLabel.TabIndex = 37;
@@ -986,10 +990,11 @@
             // MassOfPlanetTextbox
             // 
             this.MassOfPlanetTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MassOfPlanetTextbox.Location = new System.Drawing.Point(306, 473);
+            this.MassOfPlanetTextbox.Location = new System.Drawing.Point(301, 485);
             this.MassOfPlanetTextbox.Multiline = true;
             this.MassOfPlanetTextbox.Name = "MassOfPlanetTextbox";
-            this.MassOfPlanetTextbox.Size = new System.Drawing.Size(129, 39);
+            this.MassOfPlanetTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.MassOfPlanetTextbox.Size = new System.Drawing.Size(129, 26);
             this.MassOfPlanetTextbox.TabIndex = 36;
             this.MassOfPlanetTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.MassOfPlanetTextbox.Visible = false;
@@ -1000,7 +1005,7 @@
             this.SizeOfPlanetLabel.AutoSize = true;
             this.SizeOfPlanetLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SizeOfPlanetLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.SizeOfPlanetLabel.Location = new System.Drawing.Point(441, 454);
+            this.SizeOfPlanetLabel.Location = new System.Drawing.Point(436, 466);
             this.SizeOfPlanetLabel.Name = "SizeOfPlanetLabel";
             this.SizeOfPlanetLabel.Size = new System.Drawing.Size(120, 16);
             this.SizeOfPlanetLabel.TabIndex = 39;
@@ -1010,10 +1015,11 @@
             // SizeOfPlanetTextbox
             // 
             this.SizeOfPlanetTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SizeOfPlanetTextbox.Location = new System.Drawing.Point(441, 473);
+            this.SizeOfPlanetTextbox.Location = new System.Drawing.Point(436, 485);
             this.SizeOfPlanetTextbox.Multiline = true;
             this.SizeOfPlanetTextbox.Name = "SizeOfPlanetTextbox";
-            this.SizeOfPlanetTextbox.Size = new System.Drawing.Size(129, 39);
+            this.SizeOfPlanetTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.SizeOfPlanetTextbox.Size = new System.Drawing.Size(129, 26);
             this.SizeOfPlanetTextbox.TabIndex = 38;
             this.SizeOfPlanetTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SizeOfPlanetTextbox.Visible = false;
@@ -1092,7 +1098,7 @@
             this.FarOfStarLabel.AutoSize = true;
             this.FarOfStarLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FarOfStarLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.FarOfStarLabel.Location = new System.Drawing.Point(442, 454);
+            this.FarOfStarLabel.Location = new System.Drawing.Point(432, 466);
             this.FarOfStarLabel.Name = "FarOfStarLabel";
             this.FarOfStarLabel.Size = new System.Drawing.Size(96, 16);
             this.FarOfStarLabel.TabIndex = 49;
@@ -1102,10 +1108,11 @@
             // FarOfStarTextbox
             // 
             this.FarOfStarTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FarOfStarTextbox.Location = new System.Drawing.Point(431, 473);
+            this.FarOfStarTextbox.Location = new System.Drawing.Point(421, 485);
             this.FarOfStarTextbox.Multiline = true;
             this.FarOfStarTextbox.Name = "FarOfStarTextbox";
-            this.FarOfStarTextbox.Size = new System.Drawing.Size(129, 39);
+            this.FarOfStarTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.FarOfStarTextbox.Size = new System.Drawing.Size(129, 26);
             this.FarOfStarTextbox.TabIndex = 48;
             this.FarOfStarTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.FarOfStarTextbox.Visible = false;
@@ -1116,7 +1123,7 @@
             this.SizeOfStarLabel.AutoSize = true;
             this.SizeOfStarLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SizeOfStarLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.SizeOfStarLabel.Location = new System.Drawing.Point(302, 454);
+            this.SizeOfStarLabel.Location = new System.Drawing.Point(292, 466);
             this.SizeOfStarLabel.Name = "SizeOfStarLabel";
             this.SizeOfStarLabel.Size = new System.Drawing.Size(112, 16);
             this.SizeOfStarLabel.TabIndex = 47;
@@ -1126,10 +1133,11 @@
             // SizeOfStarTextbox
             // 
             this.SizeOfStarTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SizeOfStarTextbox.Location = new System.Drawing.Point(296, 473);
+            this.SizeOfStarTextbox.Location = new System.Drawing.Point(286, 485);
             this.SizeOfStarTextbox.Multiline = true;
             this.SizeOfStarTextbox.Name = "SizeOfStarTextbox";
-            this.SizeOfStarTextbox.Size = new System.Drawing.Size(129, 39);
+            this.SizeOfStarTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.SizeOfStarTextbox.Size = new System.Drawing.Size(129, 26);
             this.SizeOfStarTextbox.TabIndex = 46;
             this.SizeOfStarTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SizeOfStarTextbox.Visible = false;
@@ -1140,7 +1148,7 @@
             this.NameOfStarLabel.AutoSize = true;
             this.NameOfStarLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameOfStarLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NameOfStarLabel.Location = new System.Drawing.Point(158, 454);
+            this.NameOfStarLabel.Location = new System.Drawing.Point(148, 466);
             this.NameOfStarLabel.Name = "NameOfStarLabel";
             this.NameOfStarLabel.Size = new System.Drawing.Size(128, 16);
             this.NameOfStarLabel.TabIndex = 45;
@@ -1150,21 +1158,21 @@
             // NameOfStarTextbox
             // 
             this.NameOfStarTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameOfStarTextbox.Location = new System.Drawing.Point(161, 473);
+            this.NameOfStarTextbox.Location = new System.Drawing.Point(151, 485);
             this.NameOfStarTextbox.Multiline = true;
             this.NameOfStarTextbox.Name = "NameOfStarTextbox";
-            this.NameOfStarTextbox.Size = new System.Drawing.Size(129, 39);
+            this.NameOfStarTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.NameOfStarTextbox.Size = new System.Drawing.Size(129, 26);
             this.NameOfStarTextbox.TabIndex = 44;
             this.NameOfStarTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NameOfStarTextbox.Visible = false;
-            this.NameOfStarTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameOfStarKeyPressed);
             // 
             // NumberOfStarLabel
             // 
             this.NumberOfStarLabel.AutoSize = true;
             this.NumberOfStarLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NumberOfStarLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NumberOfStarLabel.Location = new System.Drawing.Point(28, 454);
+            this.NumberOfStarLabel.Location = new System.Drawing.Point(18, 466);
             this.NumberOfStarLabel.Name = "NumberOfStarLabel";
             this.NumberOfStarLabel.Size = new System.Drawing.Size(104, 16);
             this.NumberOfStarLabel.TabIndex = 43;
@@ -1174,11 +1182,12 @@
             // NumberOfStarTextbox
             // 
             this.NumberOfStarTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NumberOfStarTextbox.Location = new System.Drawing.Point(26, 473);
+            this.NumberOfStarTextbox.Location = new System.Drawing.Point(16, 485);
             this.NumberOfStarTextbox.Multiline = true;
             this.NumberOfStarTextbox.Name = "NumberOfStarTextbox";
             this.NumberOfStarTextbox.ReadOnly = true;
-            this.NumberOfStarTextbox.Size = new System.Drawing.Size(129, 39);
+            this.NumberOfStarTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.NumberOfStarTextbox.Size = new System.Drawing.Size(129, 26);
             this.NumberOfStarTextbox.TabIndex = 42;
             this.NumberOfStarTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NumberOfStarTextbox.Visible = false;
@@ -1201,7 +1210,7 @@
             this.SaveStarButton.Image = null;
             this.SaveStarButton.ImageSize = new System.Drawing.Size(20, 20);
             this.SaveStarButton.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.SaveStarButton.Location = new System.Drawing.Point(702, 446);
+            this.SaveStarButton.Location = new System.Drawing.Point(702, 473);
             this.SaveStarButton.Name = "SaveStarButton";
             this.SaveStarButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.SaveStarButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1210,7 +1219,7 @@
             this.SaveStarButton.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.SaveStarButton.OnPressedColor = System.Drawing.Color.Black;
             this.SaveStarButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SaveStarButton.Size = new System.Drawing.Size(114, 81);
+            this.SaveStarButton.Size = new System.Drawing.Size(114, 42);
             this.SaveStarButton.TabIndex = 50;
             this.SaveStarButton.Text = "Добавить запись";
             this.SaveStarButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1235,7 +1244,7 @@
             this.SaveEditStarButton.Image = null;
             this.SaveEditStarButton.ImageSize = new System.Drawing.Size(20, 20);
             this.SaveEditStarButton.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.SaveEditStarButton.Location = new System.Drawing.Point(701, 447);
+            this.SaveEditStarButton.Location = new System.Drawing.Point(701, 473);
             this.SaveEditStarButton.Name = "SaveEditStarButton";
             this.SaveEditStarButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.SaveEditStarButton.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1244,7 +1253,7 @@
             this.SaveEditStarButton.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
             this.SaveEditStarButton.OnPressedColor = System.Drawing.Color.Black;
             this.SaveEditStarButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SaveEditStarButton.Size = new System.Drawing.Size(112, 80);
+            this.SaveEditStarButton.Size = new System.Drawing.Size(112, 38);
             this.SaveEditStarButton.TabIndex = 51;
             this.SaveEditStarButton.Text = "Изменить запись";
             this.SaveEditStarButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1256,7 +1265,7 @@
             this.MassOfStarLabel.AutoSize = true;
             this.MassOfStarLabel.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MassOfStarLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.MassOfStarLabel.Location = new System.Drawing.Point(566, 454);
+            this.MassOfStarLabel.Location = new System.Drawing.Point(556, 466);
             this.MassOfStarLabel.Name = "MassOfStarLabel";
             this.MassOfStarLabel.Size = new System.Drawing.Size(104, 16);
             this.MassOfStarLabel.TabIndex = 53;
@@ -1266,21 +1275,55 @@
             // MassOfStarTextbox
             // 
             this.MassOfStarTextbox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MassOfStarTextbox.Location = new System.Drawing.Point(566, 473);
+            this.MassOfStarTextbox.Location = new System.Drawing.Point(556, 485);
             this.MassOfStarTextbox.Multiline = true;
             this.MassOfStarTextbox.Name = "MassOfStarTextbox";
-            this.MassOfStarTextbox.Size = new System.Drawing.Size(129, 39);
+            this.MassOfStarTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.MassOfStarTextbox.Size = new System.Drawing.Size(129, 26);
             this.MassOfStarTextbox.TabIndex = 52;
             this.MassOfStarTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.MassOfStarTextbox.Visible = false;
             this.MassOfStarTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MassOfStarKeyPressed);
+            // 
+            // ReturnButton
+            // 
+            this.ReturnButton.AnimationHoverSpeed = 0.07F;
+            this.ReturnButton.AnimationSpeed = 0.03F;
+            this.ReturnButton.BaseColor = System.Drawing.Color.Transparent;
+            this.ReturnButton.BorderColor = System.Drawing.Color.Black;
+            this.ReturnButton.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.ReturnButton.CheckedBorderColor = System.Drawing.Color.Black;
+            this.ReturnButton.CheckedForeColor = System.Drawing.Color.White;
+            this.ReturnButton.CheckedImage = ((System.Drawing.Image)(resources.GetObject("ReturnButton.CheckedImage")));
+            this.ReturnButton.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.ReturnButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.ReturnButton.FocusedColor = System.Drawing.Color.Empty;
+            this.ReturnButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ReturnButton.ForeColor = System.Drawing.Color.White;
+            this.ReturnButton.Image = ((System.Drawing.Image)(resources.GetObject("ReturnButton.Image")));
+            this.ReturnButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.ReturnButton.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.ReturnButton.Location = new System.Drawing.Point(778, 440);
+            this.ReturnButton.Name = "ReturnButton";
+            this.ReturnButton.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.ReturnButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.ReturnButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.ReturnButton.OnHoverImage = null;
+            this.ReturnButton.OnHoverLineColor = System.Drawing.Color.Transparent;
+            this.ReturnButton.OnPressedColor = System.Drawing.Color.Black;
+            this.ReturnButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ReturnButton.Size = new System.Drawing.Size(38, 34);
+            this.ReturnButton.TabIndex = 54;
+            this.ReturnButton.Text = "Удалить запись";
+            this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(832, 444);
+            this.ClientSize = new System.Drawing.Size(825, 443);
+            this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.MassOfStarLabel);
             this.Controls.Add(this.MassOfStarTextbox);
             this.Controls.Add(this.SaveEditStarButton);
@@ -1404,6 +1447,7 @@
         private System.Windows.Forms.Label NumberOfStarLabel;
         private System.Windows.Forms.TextBox NumberOfStarTextbox;
         private System.Windows.Forms.SaveFileDialog SaveFileDialog;
+        private Guna.UI.WinForms.GunaAdvenceButton ReturnButton;
     }
 }
 
