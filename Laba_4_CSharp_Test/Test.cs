@@ -3,7 +3,6 @@ using System.IO;
 using System.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Laba_4_CSharp;
-using System;
 
 namespace Laba_4_CSharp_Test
 {
