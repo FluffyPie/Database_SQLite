@@ -744,7 +744,7 @@
             this.fileToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
-            this.MenuStrip.Size = new System.Drawing.Size(825, 29);
+            this.MenuStrip.Size = new System.Drawing.Size(841, 29);
             this.MenuStrip.TabIndex = 21;
             this.MenuStrip.Text = "menuStrip1";
             // 
@@ -1244,7 +1244,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(825, 655);
+            this.ClientSize = new System.Drawing.Size(841, 437);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.MassOfStarLabel);
             this.Controls.Add(this.MassOfStarTextbox);
